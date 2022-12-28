@@ -6,22 +6,22 @@ interface Props {
 }
 
 export function InputComponent({ viewModel }: Props) {
-  const ref = React.useRef<HTMLInputElement>(null)
+  const ref = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
-    viewModel.onChange((value) => {
+    viewModel.OnChange((value) => {
       if (!ref.current) return;
 
       ref.current.value = value;
-    })
-  })
+    });
+  });
 
   return (
     <input
       ref={ref}
       onChange={(event) => {
-        viewModel.setValue(event.target.value);
+        viewModel.SetValue(event.target.value);
       }}
     />
-  )
+  );
 };

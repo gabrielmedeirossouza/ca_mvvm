@@ -1,5 +1,5 @@
 export interface InputViewModel {
-  getValue(): string;
-  setValue(newValue: string): void;
-  onChange(callback: (newValue: string) => void): void;
+  GetValue(): string;
+  SetValue(newValue: string): void;
+  OnChange(callback: (newValue: string) => void): void;
 }

@@ -1,17 +1,17 @@
 import { InputEntity as InputEntityInterface } from '../interfaces/input-entity';
 
 export class InputEntity implements InputEntityInterface {
-  private value: string;
+  private _value: string;
 
-  constructor(initialValue: string = '') {
-    this.value = initialValue;
+  constructor(initialValue = '') {
+    this._value = initialValue;
   }
 
-  getValue(): string {
-    return this.value;
+  public GetValue(): string {
+    return this._value;
   }
 
-  setValue(newValue: string): void {
-    this.value = newValue;
+  public SetValue(newValue: string): void {
+    this._value = newValue;
   }
 }

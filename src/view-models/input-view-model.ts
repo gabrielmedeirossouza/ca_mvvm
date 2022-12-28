@@ -1,23 +1,23 @@
 import { InputEntity } from '../data-models/input-entity';
 
 export class InputViewModel {
-  private entity: InputEntity;
-  private onChangeObservers: ((newValue: string) => void)[] = [];
+  private _entity: InputEntity;
+  private _onChangeObservers: ((newValue: string) => void)[] = [];
 
-  constructor(initialValue: string = '') {
-    this.entity = new InputEntity(initialValue);
+  constructor(initialValue = '') {
+    this._entity = new InputEntity(initialValue);
   }
 
-  getValue(): string {
-    return this.entity.getValue();
+  public GetValue(): string {
+    return this._entity.GetValue();
   }
 
-  setValue(newValue: string): void {
-    this.entity.setValue(newValue);
-    this.onChangeObservers.forEach(callback => callback(newValue));
+  public SetValue(newValue: string): void {
+    this._entity.SetValue(newValue);
+    this._onChangeObservers.forEach(callback => callback(newValue));
   }
 
-  onChange(callback: (newValue: string) => void): void {
-    this.onChangeObservers.push(callback);
+  public OnChange(callback: (newValue: string) => void): void {
+    this._onChangeObservers.push(callback);
   }
 }
