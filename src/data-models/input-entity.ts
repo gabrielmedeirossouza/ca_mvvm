@@ -1,4 +1,4 @@
-import { InputEntity as InputEntityInterface } from '../interfaces/input-entity';
+import { InputEntity as InputEntityInterface } from '@/interfaces/input-entity';
 
 export class InputEntity implements InputEntityInterface {
   private _value: string;

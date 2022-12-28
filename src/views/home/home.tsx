@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputViewModel } from '../../view-models/input-view-model';
-import { InputComponent } from '../../components/input-component';
+import { InputViewModel } from '@/view-models/input-view-model';
+import { InputComponent } from '@/components/input-component';
 
 export function Home() {
   const inputViewModel = new InputViewModel();

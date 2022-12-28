@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputViewModel as InputViewModelInterface } from '../../interfaces/input-view-model';
+import { InputViewModel as InputViewModelInterface } from '@/interfaces/input-view-model';
 
 interface Props {
   viewModel: InputViewModelInterface;

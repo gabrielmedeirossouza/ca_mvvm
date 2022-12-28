@@ -1,4 +1,4 @@
-import { InputEntity } from '../data-models/input-entity';
+import { InputEntity } from '@/data-models/input-entity';
 
 export class InputViewModel {
   private _entity: InputEntity;
