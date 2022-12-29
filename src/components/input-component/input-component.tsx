@@ -1,4 +1,5 @@
 import React from 'react';
+import { Input, Text, Stack } from '@chakra-ui/react';
 import { InputViewModel as InputViewModelInterface } from '@/interfaces/input-view-model';
 
 interface Props {
@@ -17,11 +18,16 @@ export function InputComponent({ viewModel }: Props) {
   });
 
   return (
-    <input
-      ref={ref}
-      onChange={(event) => {
-        viewModel.SetValue(event.target.value);
-      }}
-    />
+    <Stack spacing={1}>
+      {viewModel.label && <Text>{viewModel.label}</Text>}
+
+      <Input
+        ref={ref}
+        placeholder={viewModel.placeholder}
+        onChange={(event) => {
+          viewModel.SetValue(event.target.value);
+        }}
+      />
+    </Stack>
   );
 };

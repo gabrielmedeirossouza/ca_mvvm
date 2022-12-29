@@ -1,11 +1,12 @@
 import { InputEntity } from '@/data-models/input-entity';
+import { ConcreteInputBuilder } from '@/builders/input-builder';
 
 export class InputViewModel {
   private _entity: InputEntity;
   private _onChangeObservers: ((newValue: string) => void)[] = [];
 
-  constructor(initialValue = '') {
-    this._entity = new InputEntity(initialValue);
+  constructor(inputBuilder: ConcreteInputBuilder) {
+    this._entity = inputBuilder.Build();
   }
 
   public GetValue(): string {
@@ -19,5 +20,17 @@ export class InputViewModel {
 
   public OnChange(callback: (newValue: string) => void): void {
     this._onChangeObservers.push(callback);
+  }
+
+  public get label(): string {
+    return this._entity.label;
+  }
+
+  public get placeholder(): string {
+    return this._entity.placeholder;
+  }
+
+  public get type(): string {
+    return this._entity.type;
   }
 }

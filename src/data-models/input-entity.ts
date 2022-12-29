@@ -1,6 +1,9 @@
-import { InputEntity as InputEntityInterface } from '@/interfaces/input-entity';
+import type { InputEntity as InputEntityInterface, InputType } from '@/interfaces/input-entity';
 
 export class InputEntity implements InputEntityInterface {
+  public label = '';
+  public placeholder = '';
+  public type: InputType = 'text';
   private _value: string;
 
   constructor(initialValue = '') {
