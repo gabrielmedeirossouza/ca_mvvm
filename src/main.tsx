@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom/client';
 import { ChakraProvider } from '@chakra-ui/react';
-import { Home } from './views/home';
+import { DashboardView } from './views/dashboard';
 
 ReactDOM.createRoot(document.querySelector('#root') as HTMLElement).render(
   <ChakraProvider>
-    <Home />
+    <DashboardView />
   </ChakraProvider>
 );
