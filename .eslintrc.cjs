@@ -67,7 +67,7 @@ module.exports = {
     "@typescript-eslint/no-unused-expressions": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/numeric-separators-style": "off",
-    "max-len": ["error", { "code": 120 }],
+    "max-len": ["error", { "code": 140 }],
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/no-useless-constructor": "off",
     "@typescript-eslint/no-explicit-any": "off",
