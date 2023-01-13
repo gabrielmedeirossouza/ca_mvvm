@@ -1,5 +1,5 @@
 {
-  "name": "clean-architecture_mvvm",
+  "name": "front-end_clean-architecture",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,13 +7,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.4.5",
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "framer-motion": "^8.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^5.3.6"
@@ -28,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
     "@vitejs/plugin-react-swc": "^3.0.0",
+    "@vitest/coverage-c8": "^0.27.1",
     "@vitest/ui": "^0.26.2",
     "eslint": "^8.30.0",
     "eslint-config-airbnb": "^19.0.4",
