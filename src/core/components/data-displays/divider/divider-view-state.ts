@@ -1,3 +1,5 @@
+import { MathHelper } from "@/core/helpers/math-helper";
+
 export type Orientation = 'horizontal' | 'vertical';
 
 export class DividerViewState {
@@ -17,6 +19,6 @@ export class DividerViewState {
       console.warn('Divider size cannot be greater than 100');
     }
 
-    this._size = Math.min(Math.max(value, 0), 100);
+    this._size = MathHelper.Clamp(value, 0, 100);
   }
 }
