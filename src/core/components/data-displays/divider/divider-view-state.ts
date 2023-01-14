@@ -8,23 +8,27 @@ interface DividerViewStateOptions {
 }
 
 export class DividerViewState {
-  private _orientation: Orientation;
-  private _size;
+  public orientation: Orientation = "horizontal";
+  private _size = 100;
 
   constructor({
-    orientation = "horizontal",
-    size = 100
+    orientation,
+    size
   }: DividerViewStateOptions = {}) {
-    this._orientation ??= orientation;
+    if (orientation) {
+      this.orientation = orientation;
+    }
 
-    this._size = MathHelper.Clamp(size, 0, 100);
-  }
-
-  public get orientation(): Orientation {
-    return this._orientation;
+    if (size !== undefined) {
+      this.size = size;
+    }
   }
 
   public get size(): number {
     return this._size;
+  }
+
+  public set size(value: number) {
+    this._size = MathHelper.Clamp(value, 0, 100);
   }
 }
