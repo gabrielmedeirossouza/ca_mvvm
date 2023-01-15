@@ -1,6 +1,6 @@
 import { DividerViewState } from "./divider-view-state";
 
-describe('Component: Divider', () => {
+describe('Component: Divider -> view state', () => {
   it('should create an instance with correct default properties', () => {
     const sut = new DividerViewState();
 

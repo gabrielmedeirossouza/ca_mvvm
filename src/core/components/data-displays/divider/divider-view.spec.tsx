@@ -11,7 +11,7 @@ function makeDivider(orientation: Orientation, size: number) {
   return <DividerComponent viewState={viewState} />;
 }
 
-describe("Component: Divider", () => {
+describe("Component: Divider -> view", () => {
   it("should create a horizontal divider with default size as 100", () => {
     const { getByTestId } = render(<DividerComponent viewState={new DividerViewState()} />);
 
@@ -44,10 +44,11 @@ describe("Component: Divider", () => {
       const { getByTestId } = render(makeDivider(orientation, size));
 
       const $divider = getByTestId("divider");
+      const sizeBasedOnOrientation = orientation === "horizontal"
+        ? { width: `${expectedSize}%` }
+        : { height: `${expectedSize}%` };
 
       expect($divider).toHaveClass("divider-component", orientation);
-      expect($divider).toHaveStyle({
-        width: `${expectedSize}%`,
-      });
+      expect($divider).toHaveStyle(sizeBasedOnOrientation);
     });
 });
