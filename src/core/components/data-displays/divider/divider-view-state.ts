@@ -29,6 +29,10 @@ export class DividerViewState {
   }
 
   public set size(value: number) {
-    this._size = MathHelper.Clamp(value, 0, 100);
+    const clampResult = MathHelper.Clamp(value, 0, 100);
+
+    if (clampResult.ok) {
+      this._size = clampResult.value;
+    }
   }
 }
