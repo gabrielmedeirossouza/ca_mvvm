@@ -1,7 +1,17 @@
-export class MathHelper {
-  public static Clamp(value: number, min: number, max: number): number {
-    if (min > max) return 0;
+import { Result, TResult } from "../result";
 
-    return Math.min(Math.max(value, min), max);
+export class MathHelper {
+  public static Clamp(value: number, min: number, max: number): TResult<number> {
+    if (min > max) {
+      return Result.Log("error", `Min is greater than max: Min: ${min}, max: ${max}`).Fail("MATH_HELPER_CLAMP_MIN_GREATER_THAN_MAX");
+    }
+
+    if (min === max) {
+      return Result.Ok(min);
+    }
+
+    const result = Math.min(Math.max(value, min), max);
+
+    return Result.Ok(result);
   }
 }
