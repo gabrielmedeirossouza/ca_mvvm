@@ -11,7 +11,7 @@ it("should return a Result with Ok when call Ok static method", () => {
 });
 
 it("should return a Result with Fail when call Log->Fail", () => {
-  const result = Result.Log("error", "hello test").Fail("HELLO_TEST");
+  const result = Result.Log("error", "Result: hello test").Fail("HELLO_TEST");
 
   expect(result).toEqual({
     ok: false,
