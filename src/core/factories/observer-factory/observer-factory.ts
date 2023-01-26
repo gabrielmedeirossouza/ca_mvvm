@@ -1,13 +1,16 @@
 import { Observer } from "@/core/entities/observer";
+import type { Event, Callback } from "@/core/entities/observer";
 
-export function ObserverFactory<K extends { [key: string]: Function }>() {
-  function createObserver<A extends keyof K & string>(event: A, callback: K[A]) {
+type ObserverMap = {
+  [key: Event]: Callback;
+};
+
+type EventOf<T> = keyof T & Event;
+
+export class ObserverFactory<K extends ObserverMap> {
+  public CreateObserver<A extends EventOf<K>>(event: A, callback: K[A]) {
     const observer = new Observer<A, K[A]>(event, callback);
 
     return observer;
   }
-
-  return {
-    createObserver
-  };
 }

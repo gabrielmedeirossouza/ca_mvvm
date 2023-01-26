@@ -1,14 +1,19 @@
 import { Observer } from '../observer';
+import type { Event, Callback } from '../observer';
 
 type ObserverMap = {
-  [key: string]: (...args: any[]) => void
+  [key: Event]: Callback
 };
-type EventOf<T> = keyof T & string;
-type CallbackOf<T> = T[keyof T];
+type EventOf<T> = keyof T & Event;
+type CallbackOf<T> = T[keyof T] & Callback;
 type ObserverOf<T extends ObserverMap> = Observer<EventOf<T>, CallbackOf<T>>
 
-export class Observable<T extends { [key: string]: (...args: any[]) => void }> {
+export class Observable<T extends ObserverMap> {
   private _observers: ObserverOf<T>[] = [];
+
+  public get Observers(): ObserverOf<T>[] {
+    return this._observers;
+  }
 
   public Subscribe(observer: ObserverOf<T>): ObserverOf<T> {
     this._observers.push(observer);
@@ -24,7 +29,7 @@ export class Observable<T extends { [key: string]: (...args: any[]) => void }> {
     }
   }
 
-  public Notify<A extends keyof T & string>(event: A, ...args: Parameters<T[A]>): void {
+  public Notify<A extends EventOf<T>>(event: A, ...args: Parameters<T[A]>): void {
     this._observers.forEach(observer => {
       if (observer.event === event) {
         observer.callback(...args);
