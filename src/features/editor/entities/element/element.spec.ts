@@ -1,5 +1,5 @@
 import { Element } from './element';
-import { Position } from '../position';
+import { Position } from '../../../../core/entities/position';
 import { Shape } from '../shape';
 
 it('should create an element with default position and shape', () => {

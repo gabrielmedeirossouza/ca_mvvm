@@ -14,12 +14,10 @@ export function ControllerComponent({ children, viewState }: Props) {
   const resizeElement = new ResizeElement(viewState.element, resize);
 
   React.useEffect(() => {
-    if (!ref.current) return;
-
-    ref.current.addEventListener('mousedown', onMouseDown);
-    ref.current.addEventListener('mousemove', onMouseMove);
-    ref.current.addEventListener('mouseup', onMouseUp);
-  }, [ref]);
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+  }, []);
 
   function onMouseDown() {
     resizeElement.StartResizing();

@@ -1,4 +1,4 @@
-import { Position } from "../position";
+import { Position } from "../../../../core/entities/position";
 import { Shape } from "../shape";
 
 export class Element {

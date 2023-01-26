@@ -1,5 +1,5 @@
 import { Element } from '../../entities/element';
-import { Position } from '../../entities/position';
+import { Position } from '../../../../core/entities/position';
 import { Resize } from '../../entities/resize';
 import { Shape } from '../../entities/shape';
 import { ResizeElement } from './resize-element';

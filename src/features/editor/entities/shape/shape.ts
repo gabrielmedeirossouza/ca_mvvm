@@ -1,4 +1,5 @@
 import { Result, TResult } from '@/core/helpers/result';
+import { Log } from '@helpers/log';
 
 export type UnitType = 'px' | 'hug' | '%'
 
@@ -73,17 +74,25 @@ export class Shape {
     const MAX_VALUE = 100;
 
     if (value < MIN_VALUE) {
-      return Result.Log(
-        'warn',
+      const log = new Log(
+        "warn",
+        "shape",
         `Shape: Value cannot be less than ${MIN_VALUE}. Received: ${value}. Value will be set to ${MIN_VALUE}`
-      ).Ok(MIN_VALUE);
+      );
+      log.Dispatch();
+
+      return Result.Ok(MIN_VALUE);
     }
 
     if (value > MAX_VALUE && this._widthUnitType === '%') {
-      return Result.Log(
-        'warn',
+      const log = new Log(
+        "warn",
+        "shape",
         `Shape: Value cannot be greater than ${MAX_VALUE} when unitType is %. Received ${value}. Value will be set to ${MAX_VALUE}`
-      ).Ok(MAX_VALUE);
+      );
+      log.Dispatch();
+
+      return Result.Ok(MAX_VALUE);
     }
 
     return Result.Ok(value);

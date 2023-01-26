@@ -1,3 +1,4 @@
+import { Log } from '../log';
 import { StringFormatter } from '../string-formatter';
 
 type ErrorCode = Uppercase<string>;
@@ -12,20 +13,9 @@ type ResultFail = {
   errorCode: ErrorCode;
 }
 
-type LogType = "info" | "error" | "warn"
-
 export type TResult<T> = ResultOk<T> | ResultFail
 
 export class Result {
-  public static Log(type: LogType, msg: string) {
-    console[type](msg);
-
-    return {
-      Ok: this.Ok,
-      Fail: this._Fail
-    };
-  }
-
   public static Ok<T>(value: T): ResultOk<T> {
     return {
       ok: true,
@@ -33,8 +23,10 @@ export class Result {
     };
   }
 
-  private static _Fail(rawErrorCode: ErrorCode): ResultFail {
+  public static Fail(log: Log, rawErrorCode: ErrorCode): ResultFail {
     const errorCode = StringFormatter.ToSnakeCaseCapitalized(rawErrorCode);
+
+    log.Dispatch();
 
     return {
       ok: false,

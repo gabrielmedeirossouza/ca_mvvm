@@ -9,7 +9,15 @@ import path from "node:path";
 export default defineConfig({
   plugins: [alias(), react()],
   resolve: {
-    alias: [{ find: "@", replacement: path.resolve(__dirname, "./src") }]
+    alias: [
+      { find: "@", replacement: path.resolve(__dirname, "./src") },
+      { find: "@dom", replacement: path.resolve(__dirname, "./src/core/dom") },
+      { find: "@entities", replacement: path.resolve(__dirname, "./src/core/entities") },
+      { find: "@use-cases", replacement: path.resolve(__dirname, "./src/core/use-cases") },
+      { find: "@factories", replacement: path.resolve(__dirname, "./src/core/factories") },
+      { find: "@helpers", replacement: path.resolve(__dirname, "./src/core/helpers") },
+      { find: "@presenters", replacement: path.resolve(__dirname, "./src/core/presenters") },
+    ]
   },
   test: {
     globals: true,
