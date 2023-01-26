@@ -1,5 +1,5 @@
-import { useView } from '@/core/hooks/use-view';
-import { DividerComponent, DividerViewState } from '@/core/components/data-displays/divider';
+import { useView } from '@/core/presenter/hooks/use-view';
+import { DividerComponent, DividerViewState } from '@/core/presenter/components/data-displays/divider';
 
 const headerDividerViewState = () => new DividerViewState({ orientation: "horizontal", size: 50 });
 
