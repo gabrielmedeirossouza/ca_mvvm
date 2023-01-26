@@ -1,5 +1,5 @@
 import { ObserverFactory } from './observer-factory';
-import { Observer } from '@/core/entities/observer';
+import { Observer } from '@entities/observer';
 
 type ObserverMap = {
   "on-test": (arg: string) => void

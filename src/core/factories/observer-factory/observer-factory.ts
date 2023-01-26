@@ -1,10 +1,9 @@
-import { Observer } from "@/core/entities/observer";
-import type { Event, Callback } from "@/core/entities/observer";
+import { Observer } from "@entities/observer";
+import type { Event, Callback } from "@entities/observer";
 
 type ObserverMap = {
   [key: Event]: Callback;
 };
-
 type EventOf<T> = keyof T & Event;
 
 export class ObserverFactory<K extends ObserverMap> {

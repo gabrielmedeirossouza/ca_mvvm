@@ -1,5 +1,5 @@
-import { MathHelper } from "@/core/helpers/math-helper";
-import { Observable } from '@/core/entities/observable';
+import { MathHelper } from "@helpers/math-helper";
+import { Observable } from '@entities/observable';
 
 export type ObserverMap = {
   'on-size': (size: number) => void;

@@ -1,5 +1,5 @@
 import React from "react";
-import { ObserverFactory } from "@/core/factories/observer-factory";
+import { ObserverFactory } from "@factories/observer-factory";
 import { DividerViewState, ObserverMap } from "./divider-view-state";
 
 interface Props {

@@ -1,4 +1,4 @@
-import { Result, TResult } from '@/core/helpers/result';
+import { Result, TResult } from '@helpers/result';
 import { Log } from '@helpers/log';
 
 export type UnitType = 'px' | 'hug' | '%'
