@@ -14,9 +14,9 @@ interface DividerViewStateOptions {
 }
 
 export class DividerViewState {
+  private _observable = new Observable<ObserverMap>();
   private _orientation: Orientation = "horizontal";
   private _size = 100;
-  private _observable = new Observable<ObserverMap>();
 
   constructor({
     orientation,

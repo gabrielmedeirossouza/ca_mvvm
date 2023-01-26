@@ -1,12 +1,12 @@
-import { ObserverFactory } from "@/core/factories/observer-factory";
 import React from "react";
+import { ObserverFactory } from "@/core/factories/observer-factory";
 import { DividerViewState, ObserverMap } from "./divider-view-state";
 
 interface Props {
   viewState: DividerViewState;
 }
 
-const { createObserver } = ObserverFactory<ObserverMap>();
+const { CreateObserver } = new ObserverFactory<ObserverMap>();
 
 export function DividerComponent({ viewState }: Props) {
   const [size, setSize] = React.useState(viewState.size);
@@ -14,11 +14,11 @@ export function DividerComponent({ viewState }: Props) {
 
   React.useEffect(() => {
     const onSizeObserver = viewState.observable.Subscribe(
-      createObserver("on-size", setSize)
+      CreateObserver("on-size", setSize)
     );
 
     const onOrientationObserver = viewState.observable.Subscribe(
-      createObserver("on-orientation", setOrientation)
+      CreateObserver("on-orientation", setOrientation)
     );
 
     return () => {
@@ -32,13 +32,10 @@ export function DividerComponent({ viewState }: Props) {
     : { height: `${size}%` };
 
   return (
-    <div>
-asdfkajslkfsdak
-      <hr
-        data-testid="divider"
-        className={`divider-component ${orientation}`}
-        style={sizeBasedOnOrientation}
-      />
-    </div>
+    <hr
+      data-testid="divider"
+      className={`divider-component ${orientation}`}
+      style={sizeBasedOnOrientation}
+    />
   );
 }
