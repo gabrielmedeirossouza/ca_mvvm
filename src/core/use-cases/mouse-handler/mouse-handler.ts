@@ -1,6 +1,6 @@
-import { EventListener } from '@dom/event-listener';
+import { EventListener } from '@presenters/dom/event-listener';
 import { Observable } from '@entities/observable';
-import { Position } from '../../entities/position';
+import { Position } from '@entities/position';
 
 type MouseEventType = "mousemove" | "mouseup" | "mousedown";
 

@@ -19,7 +19,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@dom/*": ["src/core/dom/*"],
+      "@dom/*": ["src/core/presenters/dom/*"],
       "@entities/*": ["src/core/entities/*"],
       "@use-cases/*": ["src/core/use-cases/*"],
       "@factories/*": ["src/core/factories/*"],
